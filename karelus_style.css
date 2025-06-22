@@ -29,3 +29,21 @@ label {
 .button:hover {
   background-color: #472e20;
 }
+
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 1.2rem;
+    padding: 0.75rem;
+  }
+
+  .button {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .tooltip {
+    display: none;
+  }
+}
