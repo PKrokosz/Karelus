@@ -10,12 +10,34 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const links = document.querySelectorAll("a[href^='zamowienie.html?model=']");
-      links.forEach(link => {
-        link.addEventListener("click", e => {
-          console.log("Kliknięto model:", link.href);
+      fetch("models.json")
+        .then(res => res.json())
+        .then(models => {
+          const grid = document.getElementById("catalog-list");
+          models.forEach((model, idx) => {
+            const card = document.createElement("div");
+            card.className = "bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow";
+            card.setAttribute("data-aos", "zoom-in");
+            if (idx) card.setAttribute("data-aos-delay", idx * 100);
+            card.innerHTML = `
+              <img src="${model.image}" alt="${model.name}" class="w-full h-64 object-cover">
+              <div class="p-4">
+                <h3 class="text-xl font-semibold mb-1">${model.name}</h3>
+                <p class="text-sm text-gray-700 mb-1">${model.description}</p>
+                <p class="text-sm font-semibold text-[#5a3e2b] mb-3">Cena: od ${model.price} zł</p>
+                <a href="zamowienie.html?model=${encodeURIComponent(model.name)}" class="inline-block text-[#5a3e2b] underline hover:opacity-80">Zamów ten model</a>
+              </div>
+            `;
+            grid.appendChild(card);
+          });
+
+          const links = document.querySelectorAll("a[href^='zamowienie.html?model=']");
+          links.forEach(link => {
+            link.addEventListener("click", () => {
+              console.log("Kliknięto model:", link.href);
+            });
+          });
         });
-      });
     });
   </script>
   <style>
@@ -49,26 +71,7 @@
   <section class="py-16 px-6 bg-[#f1ede8]" id="katalog">
     <div class="max-w-5xl mx-auto">
       <h2 class="text-3xl font-serif mb-8" data-aos="fade-up">Wybrane modele</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="zoom-in">
-          <img src="img/placeholder_wanderer.jpg" alt="Wanderer Mk I" class="w-full h-64 object-cover">
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-1">Wanderer Mk I</h3>
-            <p class="text-sm text-gray-700 mb-1">But na wędrówkę, błoto i ogień. Miękka skóra, solidna podeszwa.</p>
-            <p class="text-sm font-semibold text-[#5a3e2b] mb-3">Cena: od 1300 zł</p>
-            <a href="zamowienie.html?model=Wanderer Mk I" class="inline-block text-[#5a3e2b] underline hover:opacity-80">Zamów ten model</a>
-          </div>
-        </div>
-        <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow" data-aos="zoom-in" data-aos-delay="100">
-          <img src="img/placeholder_ancestor.jpg" alt="Kamienny Przodek" class="w-full h-64 object-cover">
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-1">Kamienny Przodek</h3>
-            <p class="text-sm text-gray-700 mb-1">Model wykorzystywany na planie <strong>„1620”</strong> (Netflix). Surowy, archetypiczny, niezniszczalny.</p>
-            <p class="text-sm font-semibold text-[#5a3e2b] mb-3">Cena: od 1800 zł</p>
-            <a href="zamowienie.html?model=Kamienny Przodek" class="inline-block text-[#5a3e2b] underline hover:opacity-80">Zamów ten model</a>
-          </div>
-        </div>
-      </div>
+      <div id="catalog-list" class="grid md:grid-cols-2 gap-8"></div>
     </div>
   </section>
 </body>
