@@ -98,6 +98,40 @@
       font-weight: bold;
       color: #5a3e2b;
     }
+    @media (max-width: 640px) {
+      body {
+        font-size: 0.95rem;
+      }
+      input, select, textarea {
+        font-size: 1.2rem;
+        padding: 0.75rem;
+      }
+      .button {
+        font-size: 1.2rem;
+        padding: 0.75rem 1.25rem;
+      }
+      .tooltip {
+        display: none;
+      }
+    }
+
+    .sticky-submit {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+    }
+    @media (min-width: 640px) {
+      .sticky-submit {
+        position: static;
+        width: auto;
+        border-radius: 0.25rem;
+        margin-top: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -148,7 +182,7 @@
     <div id="total-price">Cena: 0 zł</div>
     <label>Inne uwagi:<br><textarea rows="3"></textarea></label>
 
-    <button class="button" type="submit">Wyślij zamówienie</button>
+    <button class="button sticky-submit" type="submit">Wyślij zamówienie</button>
   </form>
 
   <div id="confirmation" class="hidden">
