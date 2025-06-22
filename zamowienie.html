@@ -62,18 +62,18 @@
   <form id="order-form">
     <h1>Zamówienie butów</h1>
 
-    <label>Imię i nazwisko:<br><input type="text" required></label>
-    <label>Adres e-mail:<br><input type="email" required></label>
-    <label>Numer telefonu:<br><input type="tel" required></label>
-    <label>Kod paczkomatu:<br><input type="text" required></label>
+    <label>Imię i nazwisko:<br><input type="text" name="fullname" id="fullname" required></label>
+    <label>Adres e-mail:<br><input type="email" name="email" id="email" required></label>
+    <label>Numer telefonu:<br><input type="tel" name="phone" id="phone" required></label>
+    <label>Kod paczkomatu:<br><input type="text" name="locker" id="locker" required></label>
 
-    <label>Długość stopy (cm):<br><input type="number" step="0.1" required></label>
-    <label>Obwód śródstopia (cm):<br><input type="number" step="0.1" required></label>
-    <label>Obwód łydki (cm):<br><input type="number" step="0.1"></label>
+    <label>Długość stopy (cm):<br><input type="number" name="foot_length" id="foot_length" step="0.1" required></label>
+    <label>Obwód śródstopia (cm):<br><input type="number" name="midfoot_circ" id="midfoot_circ" step="0.1" required></label>
+    <label>Obwód łydki (cm):<br><input type="number" name="calf_circ" id="calf_circ" step="0.1"></label>
 
     <label>
       Wybierz model:
-      <select id="model">
+      <select id="model" name="model">
         <option>Wanderer Mk I</option>
         <option>Kamienny Przodek</option>
         <option>Szpic</option>
@@ -83,7 +83,7 @@
     </label>
 
     <label>Kolor:<br>
-      <select>
+      <select name="color" id="color">
         <option>Brązowy</option>
         <option>Czarny</option>
         <option>Bordo</option>
@@ -91,7 +91,7 @@
     </label>
 
     <label>Rozmiar (UE):<br>
-      <select>
+      <select name="size" id="size">
         <option>36</option><option>37</option><option>38</option><option>39</option><option>40</option><option>41</option>
         <option>42</option><option>43</option><option>44</option><option>45</option><option>46</option>
       </select>
@@ -99,14 +99,14 @@
 
     <fieldset>
       <legend>Akcesoria:</legend>
-      <label><input type="checkbox"> Dedykowany wosk do butów - 60 zł</label>
-      <label><input type="checkbox"> Wkładki antybakteryjne - 100 zł</label>
-      <label><input type="checkbox"> Srebro do dezynfekcji - 80 zł</label>
-      <label><input type="checkbox"> Prawidła sosnowe - 150 zł</label>
+      <label><input type="checkbox" name="wax" value="Dedykowany wosk do butów"> Dedykowany wosk do butów - 60 zł</label>
+      <label><input type="checkbox" name="insoles" value="Wkładki antybakteryjne"> Wkładki antybakteryjne - 100 zł</label>
+      <label><input type="checkbox" name="silver" value="Srebro do dezynfekcji"> Srebro do dezynfekcji - 80 zł</label>
+      <label><input type="checkbox" name="trees" value="Prawidła sosnowe"> Prawidła sosnowe - 150 zł</label>
     </fieldset>
 
-    <label>Hasło rabatowe:<br><input type="text"></label>
-    <label>Inne uwagi:<br><textarea rows="3"></textarea></label>
+    <label>Hasło rabatowe:<br><input type="text" name="discount" id="discount"></label>
+    <label>Inne uwagi:<br><textarea rows="3" name="notes" id="notes"></textarea></label>
 
     <button class="button" type="submit">Wyślij zamówienie</button>
   </form>
