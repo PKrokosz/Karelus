@@ -44,6 +44,12 @@
     .hidden {
       display: none;
     }
+    input, select, textarea {
+      font-size: 1rem;
+      padding: 0.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
     .button {
       background-color: #5a3e2b;
       color: white;
@@ -55,6 +61,26 @@
     }
     .button:hover {
       background-color: #472e20;
+    }
+    @media (max-width: 640px) {
+      input, select, textarea {
+        font-size: 1.125rem;
+        padding: 0.75rem;
+      }
+      #submit-wrapper {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #fdfaf5;
+        padding: 1rem;
+        box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+      }
+      #submit-wrapper .button {
+        width: 100%;
+        font-size: 1.125rem;
+        padding: 1rem;
+      }
     }
   </style>
 </head>
@@ -108,7 +134,9 @@
     <label>Hasło rabatowe:<br><input type="text"></label>
     <label>Inne uwagi:<br><textarea rows="3"></textarea></label>
 
-    <button class="button" type="submit">Wyślij zamówienie</button>
+    <div id="submit-wrapper">
+      <button class="button" type="submit">Wyślij zamówienie</button>
+    </div>
   </form>
 
   <div id="confirmation" class="hidden">
