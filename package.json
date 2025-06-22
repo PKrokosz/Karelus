@@ -1,0 +1,14 @@
+{
+  "name": "karelus",
+  "version": "1.0.0",
+  "description": "Minimalna wersja sklepu internetowego z butami Jacka Karelusa – katalog + formularz zamówienia.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i input.css -o output.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
