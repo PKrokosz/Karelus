@@ -1,0 +1,37 @@
+[
+  {
+    "image": "img/placeholder_wanderer.jpg",
+    "name": "Wanderer Mk I",
+    "price": 1300,
+    "description": "But na wędrówkę, błoto i ogień. Miękka skóra, solidna podeszwa.",
+    "tags": ["larp"]
+  },
+  {
+    "image": "img/placeholder_ancestor.jpg",
+    "name": "Kamienny Przodek",
+    "price": 1800,
+    "description": "Model wykorzystywany na planie \"1620\". Surowy i niezniszczalny.",
+    "tags": ["filmowe"]
+  },
+  {
+    "image": "img/placeholder_szpic.jpg",
+    "name": "Szpic",
+    "price": 1500,
+    "description": "Historyczny model o wydłużonym czubku.",
+    "tags": ["larp"]
+  },
+  {
+    "image": "img/placeholder_krowie.jpg",
+    "name": "Krowie Pyski",
+    "price": 1600,
+    "description": "Solidny but o szerokim przodzie.",
+    "tags": ["wysokie"]
+  },
+  {
+    "image": "img/placeholder_dragonki.jpg",
+    "name": "Dragonki",
+    "price": 1900,
+    "description": "Wysokie buty inspirowane smokami.",
+    "tags": ["wysokie", "larp"]
+  }
+]
