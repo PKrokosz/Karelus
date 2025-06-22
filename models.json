@@ -1,16 +1,14 @@
 [
   {
-    "id": "wanderer",
     "name": "Wanderer Mk I",
+    "description": "But na wędrówkę, błoto i ogień. Miękka skóra, solidna podeszwa.",
     "price": 1300,
-    "tags": ["wysokie", "larp"],
-    "images": ["wanderer1.webp", "wanderer2.webp"]
+    "image": "img/placeholder_wanderer.jpg"
   },
   {
-    "id": "ancestor",
     "name": "Kamienny Przodek",
+    "description": "Model wykorzystywany na planie \u201e1620\u201d (Netflix). Surowy, archetypiczny, niezniszczalny.",
     "price": 1800,
-    "tags": ["wysokie", "filmowe"],
-    "images": ["ancestor1.webp", "ancestor2.webp"]
+    "image": "img/placeholder_ancestor.jpg"
   }
 ]
