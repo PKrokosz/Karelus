@@ -59,11 +59,10 @@
           e.preventDefault();
           const nameInput = document.getElementById("customer-name");
           const initials = nameInput.value.trim().split(/\s+/).map(w => w.charAt(0).toUpperCase()).join('');
+          const name = nameInput.value.trim();
           const orderId = Date.now() + initials;
-          document.getElementById("order-id").textContent = orderId;
-          document.getElementById("bank-title").textContent = `Tytuł: ${nameInput.value.trim()} - opłata za buty ${orderId}`;
-          document.getElementById("confirmation").classList.remove("hidden");
-          form.classList.add("hidden");
+          const params = new URLSearchParams({ orderId, name });
+          window.location.href = `thank-you.html?${params.toString()}`;
         });
       }
     });

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dziękujemy za zamówienie</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #fdfaf5;
+    }
+    .button {
+      background-color: #5a3e2b;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.25rem;
+      margin-top: 1rem;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .button:hover {
+      background-color: #472e20;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dziękujemy za zamówienie!</h1>
+  <p>Twoje zamówienie zostało przyjęte.</p>
+  <p>ID zamówienia: <span id="order-id"></span></p>
+  <p><strong>Dane do przelewu:</strong></p>
+  <p id="bank-title"></p>
+  <p>Odbiorca: STONELOVE Anna Karelus</p>
+  <p>Numer konta: 56 1020 1433 0000 1202 0210 3547</p>
+  <a href="index.html" class="button">Wróć do katalogu</a>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get('orderId');
+    const name = params.get('name') || '';
+    if (orderId) {
+      document.getElementById('order-id').textContent = orderId;
+      document.getElementById('bank-title').textContent = `Tytuł: ${name} - opłata za buty ${orderId}`;
+    }
+  </script>
+</body>
+</html>
