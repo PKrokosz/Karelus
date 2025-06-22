@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles moved from HTML */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+  background: #fdfaf5;
+}
+label {
+  display: block;
+  margin-top: 1rem;
+}
+.hidden {
+  display: none;
+}
+.button {
+  background-color: #5a3e2b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #472e20;
+}
