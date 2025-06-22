@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formularz zamówienia</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <!-- Optional: EmailJS library for sending confirmation emails -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const urlParams = new URLSearchParams(window.location.search);
@@ -25,8 +28,34 @@
       if (form) {
         form.addEventListener("submit", function (e) {
           e.preventDefault();
-          document.getElementById("confirmation").classList.remove("hidden");
+          const confirmation = document.getElementById("confirmation");
+          confirmation.classList.remove("hidden");
           form.classList.add("hidden");
+
+          // generate a simple order ID
+          const orderId = Date.now();
+          document.getElementById("order-id").textContent = orderId;
+
+          // attempt to send a confirmation email via EmailJS
+          // NOTE: replace SERVICE_ID, TEMPLATE_ID and PUBLIC_KEY with actual values
+          if (window.emailjs) {
+            emailjs.init("PUBLIC_KEY");
+            emailjs.send("SERVICE_ID", "TEMPLATE_ID", {
+              order_id: orderId,
+              name: form.elements[0].value,
+              email: form.elements[1].value,
+              phone: form.elements[2].value,
+              locker: form.elements[3].value,
+            }).catch(function(err){ console.error("EmailJS error", err); });
+          }
+        });
+      }
+
+      const downloadBtn = document.getElementById("download-pdf");
+      if (downloadBtn) {
+        downloadBtn.addEventListener("click", function () {
+          const element = document.getElementById("confirmation");
+          html2pdf().from(element).save("zamowienie.pdf");
         });
       }
     });
@@ -114,10 +143,12 @@
   <div id="confirmation" class="hidden">
     <h2>Dziękujemy za zamówienie!</h2>
     <p>Twoje zamówienie zostało przyjęte.</p>
+    <p>Numer zamówienia: <span id="order-id"></span></p>
     <p><strong>Dane do przelewu:</strong></p>
     <p>Tytuł: *twoje imię i nazwisko* - opłata za buty</p>
     <p>Odbiorca: STONELOVE Anna Karelus</p>
     <p>Numer konta: 56 1020 1433 0000 1202 0210 3547</p>
+    <button id="download-pdf" class="button" type="button">Zapisz zamówienie jako PDF</button>
     <a href="karelus_shop_mvp.html" class="button">Wróć do katalogu</a>
   </div>
 </body>
