@@ -1,0 +1,16 @@
+[
+  {
+    "id": "wanderer",
+    "name": "Wanderer Mk I",
+    "price": 1300,
+    "tags": ["wysokie", "larp"],
+    "images": ["wanderer1.webp", "wanderer2.webp"]
+  },
+  {
+    "id": "ancestor",
+    "name": "Kamienny Przodek",
+    "price": 1800,
+    "tags": ["wysokie", "filmowe"],
+    "images": ["ancestor1.webp", "ancestor2.webp"]
+  }
+]
