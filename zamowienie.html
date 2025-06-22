@@ -92,6 +92,12 @@
     .button:hover {
       background-color: #472e20;
     }
+    .tooltip {
+      cursor: help;
+      margin-left: 4px;
+      font-weight: bold;
+      color: #5a3e2b;
+    }
   </style>
 </head>
 <body>
@@ -135,10 +141,10 @@
 
     <fieldset>
       <legend>Akcesoria:</legend>
-      <label><input type="checkbox" data-price="60"> Dedykowany wosk do butów - 60 zł</label>
-      <label><input type="checkbox" data-price="100"> Wkładki antybakteryjne - 100 zł</label>
-      <label><input type="checkbox" data-price="80"> Srebro do dezynfekcji - 80 zł</label>
-      <label><input type="checkbox" data-price="150"> Prawidła sosnowe - 150 zł</label>
+      <label><input type="checkbox" data-price="60"> Dedykowany wosk do butów - 60 zł <span class="tooltip" title="Chroni i impregnuje skórę">?</span></label>
+      <label><input type="checkbox" data-price="100"> Wkładki antybakteryjne - 100 zł <span class="tooltip" title="Zapobiegają powstawaniu zapachu">?</span></label>
+      <label><input type="checkbox" data-price="80"> Srebro do dezynfekcji - 80 zł <span class="tooltip" title="Dezynfekuje wnętrze obuwia">?</span></label>
+      <label><input type="checkbox" data-price="150"> Prawidła sosnowe - 150 zł <span class="tooltip" title="Prawidła: pomagają utrzymać kształt buta, wykonane z drewna sosnowego.">?</span></label>
     </fieldset>
 
     <label>Hasło rabatowe:<br><input type="text" id="discount-code"></label>
