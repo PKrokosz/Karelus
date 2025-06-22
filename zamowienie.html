@@ -25,8 +25,8 @@
       if (form) {
         form.addEventListener("submit", function (e) {
           e.preventDefault();
-          document.getElementById("confirmation").classList.remove("hidden");
-          form.classList.add("hidden");
+          const orderId = Date.now().toString();
+          window.location.href = "thank-you.html?orderId=" + encodeURIComponent(orderId);
         });
       }
     });
@@ -111,14 +111,5 @@
     <button class="button" type="submit">Wyślij zamówienie</button>
   </form>
 
-  <div id="confirmation" class="hidden">
-    <h2>Dziękujemy za zamówienie!</h2>
-    <p>Twoje zamówienie zostało przyjęte.</p>
-    <p><strong>Dane do przelewu:</strong></p>
-    <p>Tytuł: *twoje imię i nazwisko* - opłata za buty</p>
-    <p>Odbiorca: STONELOVE Anna Karelus</p>
-    <p>Numer konta: 56 1020 1433 0000 1202 0210 3547</p>
-    <a href="karelus_shop_mvp.html" class="button">Wróć do katalogu</a>
-  </div>
 </body>
 </html>
